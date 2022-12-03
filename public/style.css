@@ -1,0 +1,174 @@
+#root {
+  min-height: 100vh;
+  display: flex;
+  min-width: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.loader {
+  margin: auto;
+  width: 50px;
+  height: 50px;
+}
+
+.circular-loader {
+  animation: rotate 2s linear infinite;
+}
+
+.loader-path {
+  fill: none;
+  stroke-width: 3px;
+  animation: animate-stroke 1.5s ease-in-out infinite;
+  stroke-linecap: round;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animate-stroke {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+    stroke: #7352c7;
+  }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35;
+    stroke: #7352c7;
+  }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124;
+    stroke: #7352c7;
+  }
+}
+
+.move_campaigin_title {
+  font-weight: bold;
+  position: relative;
+  animation: campaign_title_move 15s infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes campaign_title_move {
+  0%   {
+    transform: translateX(0%);
+    margin-left: 0%;
+  }
+  20%   {
+    transform: translateX(0%);
+    margin-left: 0%;
+  }
+  40%   { 
+    transform: translateX(-100%);
+    margin-left: 100%;
+  }
+  60%   { 
+    transform: translateX(-100%);
+    margin-left: 100%;
+  }
+  80% {
+    transform: translateX(0%);
+    margin-left: 0%;
+  }
+  100% {
+    transform: translateX(0%);
+    margin-left: 0%;
+  }
+}
+
+.custom_swal_container {
+  z-index: 1200 !important;
+}
+
+.custom_swal_popup {
+  width: 24em !important;
+  overflow: hidden !important;
+  border-radius: 23px !important;
+  padding-bottom: 30px !important;
+  color: #3D3649 !important;
+  background-color: #FFFFFF !important; 
+}
+
+.custom_swal_title {
+  color: #37373C !important;
+  font-size: 1.5rem !important;
+  font-weight: 400 !important;
+}
+
+.custom_swal_closeButton {
+  color: #3D3649 !important;
+}
+
+.custom_swal_closeButton:focus {
+  box-shadow: none !important;
+}
+
+.custom_swal_closeButton:hover {
+  color: #37373C !important;
+}
+
+.custom_swal_image {
+  margin: 0 auto 16px !important;
+}
+
+.custom_swal_htmlContainer {
+  margin: 8px 24px 4px !important;
+  font-size: 1rem !important;
+  line-height: 1.5 !important;
+}
+
+.custom_swal_htmlContainer .a {
+  text-decoration: none !important;
+}
+
+.custom_swal_confirmButton {
+  color: #fff !important;
+  border: 0 !important;
+  cursor: pointer !important;
+  margin: 0.521125em !important;
+  padding: 6px 16px !important;
+  font-size: 0.875rem !important;
+  background: linear-gradient(180deg, #782FEE -8.69%, #DD00FF 109.93%) !important;
+  box-sizing: border-box !important;
+  font-family: inherit !important;
+  font-weight: 600 !important;
+  line-height: 1.75 !important;
+  border-radius: 7.69px 3.2169px !important;
+}
+
+.custom_swal_confirmButton:hover {
+  background: linear-gradient(90deg, #8747f0 -8.69%, #e433ff 109.93%) !important;
+}
+
+.custom_swal_cancelButton {
+  color: #fff !important;
+  border: 0 !important;
+  cursor: pointer !important;
+  margin: 0.3125em !important;
+  padding: 6px 16px !important;
+  font-size: 0.875rem !important;
+  box-sizing: border-box !important;
+  font-family: inherit !important;
+  line-height: 1.75 !important;
+  border-radius: 3.2169px 7.69px !important;
+  background-color: #9e9e9e !important;
+}
+
+.custom_swal_cancelButton:hover :focus :active {
+  background-color: #9e9e9e !important;
+}
+
+.custom_swal_footer {
+  font-size: .875rem !important ;
+  margin-top: 1.5rem !important;
+  border-color: #f0effa !important;
+}
+
+.custom_swal_footer .a {
+  text-decoration: none !important;
+}
