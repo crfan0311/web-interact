@@ -1,0 +1,69 @@
+import React, {useState} from 'react';
+import Typography from "@mui/material/Typography";
+import {GoogleMap, OverlayView, useLoadScript} from "@react-google-maps/api";
+import Button from "@mui/material/Button";
+import JumboDemoCard from "@jumbo/components/JumboDemoCard";
+import {useTranslation} from "react-i18next";
+import code from './demo-code/map-overlay.txt';
+
+const STYLES = {
+    mapContainer: {
+        height: 500,
+    },
+    overlayView: {
+        background: '#fff',
+        border: '1px solid #ccc',
+        padding: 15,
+    },
+};
+
+const getPixelPositionOffset = (width, height) => {
+    return {x: -(width / 2), y: -(height / 2)};
+};
+
+const MapOverlay = () => {
+    const {t} = useTranslation();
+    const {isLoaded, loadError} = useLoadScript({
+        googleMapsApiKey: "AIzaSyCJM0a8oSaRMwxthozENQg1euRI51aNXJQ",
+        libraries: ["visualization"]
+    });
+
+    const [count, setCount] = useState(0);
+
+    const handleClick = () => {
+        setCount(count + 1);
+    };
+
+    return (
+        <React.Fragment>
+            <Typography variant={"h1"} mb={3}>{t('pages.title.mapOverlay')}</Typography>
+            <JumboDemoCard demoCode={code} wrapperSx={{pt: 0, backgroundColor: 'background.paper'}}>
+                {
+                    isLoaded &&
+                    <GoogleMap
+                        id="overlay-view-example"
+                        mapContainerStyle={{width: '100%', height: "400px"}}
+                        center={{lat: 47.646935, lng: -122.303763}}
+                        zoom={15}
+
+                    >
+                        <OverlayView
+                            position={{lat: 47.646935, lng: -122.303763}}
+                            mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}
+                            getPixelPositionOffset={getPixelPositionOffset}
+                        >
+                            <div style={STYLES.overlayView}>
+                                <Typography variant={"h1"}>OverlayView</Typography>
+                                <Button variant={"contained"} onClick={handleClick}>
+                                    I have been clicked {count} time{count === 1 ? `` : `s`}
+                                </Button>
+                            </div>
+                        </OverlayView>
+                    </GoogleMap>
+                }
+            </JumboDemoCard>
+        </React.Fragment>
+    );
+};
+
+export default MapOverlay;

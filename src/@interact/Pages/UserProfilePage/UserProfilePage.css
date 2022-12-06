@@ -1,0 +1,153 @@
+.profilePic {
+    border-radius:1000px;
+    width:200px;
+    height:200px;
+}
+
+.coverSection{
+    background-color: #782fee;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    padding-top:20px;
+    padding-bottom:20px;
+    /* height:300px; */
+}
+
+.horizontalScroll::-webkit-scrollbar {
+    display: none;
+  }
+
+.modal{
+    max-width:700px;
+    width:400px;
+    height:70%;
+    background-color: white;
+    border-radius: 20px;
+    margin-left: calc(50% - 200px);
+    margin-top:10%;
+    padding:20px;
+}
+
+.image_item{
+    position: relative;
+    cursor: pointer;
+}
+.image_item_img{
+    box-sizing: border-box;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 117px;
+
+}
+
+.image_item-form{
+    position: absolute;
+    border: 2px dashed #6a727a;
+    cursor: pointer;
+    width: 200px;
+    height: 200px;
+    border-radius: 1000px;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+.image_item:hover .image_item-form{
+    display: block;
+}
+
+.image_item-form--label{
+    padding: 9px 15px;
+    border-radius: 4px;
+    font-size: 18px;
+    color: White;
+    position: absolute;
+    text-align: center;
+    top: 50.69%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.image-item-form-input{
+    height: 200px;
+    width: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+/* Swiper Slider */
+
+.swiper-button-prev, .swiper-button-next {
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    color: grey;
+    font-weight: 700;
+    outline: 0;
+    transition: background-color .2s ease, color .2s ease;
+  }
+.swiper-button-prev::after,.swiper-button-next::after{
+    font-size: 50px;
+}
+  
+  .swiper-button-prev::after{
+    position: relative;
+    left: -1px;
+  }
+  
+  .swiper-button-next::after {
+    position: relative;
+    left: 1px;
+  }
+  
+  .swiper-button-prev, .swiper-container-rtl .swiper-button-next {
+    left: -70px;
+    right: auto;
+  }
+  
+  .swiper-button-next, .swiper-container-rtl .swiper-button-prev {
+    right: -70px;
+    left: auto;
+  }
+  
+  .swiper-button-prev.swiper-button-disabled, .swiper-button-next.swiper-button-disabled {
+    color: lightgray;
+    cursor: auto;
+    pointer-events: none;
+  }
+
+  .ReactModal__Overlay {
+    z-index: 1000;
+  }
+
+  .profile_pic--icon{
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    border: 1px solid black;
+    border-radius: 50%;
+    padding: 1px;
+    color: black;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.profile-desc--wrapper{
+  position: relative;
+}
+
+svg.profile-desc--edit{
+  display: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right:0;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.profile-desc--wrapper:hover .profile-desc--edit{
+  display: inline-block;
+}

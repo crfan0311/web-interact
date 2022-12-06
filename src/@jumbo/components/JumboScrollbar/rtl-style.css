@@ -1,0 +1,4 @@
+.rtl .jmb-react-custom-scrollbar > div:first-child, [dir="rtl"] .jmb-react-custom-scrollbar > div:first-child {
+    margin-left: -17px;
+    margin-right: 0 !important;
+}

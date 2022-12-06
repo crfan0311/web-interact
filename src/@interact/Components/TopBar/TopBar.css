@@ -1,0 +1,16 @@
+.TopBar {
+    /* width:100vw; */
+    height:50px;
+    width:calc(100vw- 60px);
+    flex-direction: row;
+    justify-content: space-between;
+    display:flex;
+    align-items: center;
+    padding-top:7px;
+    padding-left: 30px;
+    padding-right:30px;
+    padding-bottom:7px;
+    color:#000;
+}
+
+

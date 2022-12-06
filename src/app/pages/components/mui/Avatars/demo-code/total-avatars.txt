@@ -1,0 +1,20 @@
+import React from 'react';
+import JumboDemoCard from "@jumbo/components/JumboDemoCard";
+import {Avatar, AvatarGroup} from "@mui/material";
+import code from "../Avatars/demo-code/total-avatars.txt";
+import {ASSET_AVATARS} from "../../../../utils/constants/paths";
+
+const TotalAvatars = () => {
+    return (
+        <JumboDemoCard title={"Total Avatars"} demoCode={code} wrapperSx={{backgroundColor: 'background.paper', pt: 0}}>
+            <AvatarGroup total={24}>
+                <Avatar alt="Remy Sharp" src={`${ASSET_AVATARS}/avatar11.jpg`}/>
+                <Avatar alt="Travis Howard" src={`${ASSET_AVATARS}/avatar9.jpg`}/>
+                <Avatar alt="Agnes Walker" src={`${ASSET_AVATARS}/avatar4.jpg`}/>
+                <Avatar alt="Trevor Henderson" src={`${ASSET_AVATARS}/avatar5.jpg`}/>
+            </AvatarGroup>
+        </JumboDemoCard>
+    );
+};
+
+export default TotalAvatars;

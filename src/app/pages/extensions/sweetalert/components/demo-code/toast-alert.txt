@@ -1,0 +1,54 @@
+import React from 'react';
+import Button from "@mui/material/Button";
+import useSwalWrapper from "@jumbo/vendors/sweetalert2/hooks";
+import {useTheme} from "@mui/material";
+import JumboDemoCard from "@jumbo/components/JumboDemoCard";
+import code from "../components/demo-code/toast-alert.txt";
+
+const ToastAlerts = () => {
+    const Swal = useSwalWrapper();
+    const theme = useTheme();
+    const sweetAlerts = variant => {
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            onOpen: toast => {
+                toast.addEventListener('mouseenter', Swal.stopTimer);
+                toast.addEventListener('mouseleave', Swal.resumeTimer);
+            },
+        });
+
+        Toast.fire({
+            icon: variant,
+            title: 'You clicked the button!',
+            background: theme.palette.background.paper,
+        });
+    };
+    return (
+        <JumboDemoCard
+            title={"Toast alerts"}
+            demoCode={code}
+        >
+            <Button color="success" variant={"outlined"} onClick={() => sweetAlerts('success')} sx={{mr: 1, mb: 1}}>
+                Success
+            </Button>
+            <Button color="error" variant={"outlined"} onClick={() => sweetAlerts('error')} sx={{mr: 1, mb: 1}}>
+                Error
+            </Button>
+            <Button color="warning" variant={"outlined"} onClick={() => sweetAlerts('warning')} sx={{mr: 1, mb: 1}}>
+                Warning
+            </Button>
+            <Button color="info" variant={"outlined"} onClick={() => sweetAlerts('info')} sx={{mr: 1, mb: 1}}>
+                Information
+            </Button>
+            <Button color="error" variant={"outlined"} onClick={() => sweetAlerts('question')} sx={{mr: 1, mb: 1}}>
+                Question
+            </Button>
+        </JumboDemoCard>
+    );
+};
+
+export default ToastAlerts;

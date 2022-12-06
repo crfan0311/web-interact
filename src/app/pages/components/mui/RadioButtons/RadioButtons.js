@@ -1,0 +1,29 @@
+import React from 'react';
+import RadioButtonsGroup from "./RadioButtonsGroup";
+import RowRadioButtonsGroup from "./RowRadioButtonsGroup";
+import ControlledRadioButtonsGroup from "./ControlledRadioButtonsGroup";
+import SizeRadioButtons from "./SizeRadioButtons";
+import ColorRadioButtons from "./ColorRadioButtons";
+import FormControlLabelPlacement from "./FormControlLabelPlacement";
+import ErrorRadios from "./ErrorRadios";
+import Masonry from "@mui/lab/Masonry";
+
+const RadioButtons = () => {
+    return (
+        <Masonry
+            spacing={3.75}
+            columns={{xs: 1, lg: 2}}
+            sx={{minWidth: '100%', width: 'auto'}}
+        >
+            <RadioButtonsGroup/>
+            <RowRadioButtonsGroup/>
+            <ControlledRadioButtonsGroup/>
+            <SizeRadioButtons/>
+            <ColorRadioButtons/>
+            <FormControlLabelPlacement/>
+            <ErrorRadios/>
+        </Masonry>
+    );
+};
+
+export default RadioButtons;

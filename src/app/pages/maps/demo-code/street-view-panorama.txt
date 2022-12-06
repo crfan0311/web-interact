@@ -1,0 +1,61 @@
+import React from 'react';
+import Typography from "@mui/material/Typography";
+import {GoogleMap, OverlayView, StreetViewPanorama, useLoadScript} from "@react-google-maps/api";
+import JumboDemoCard from "@jumbo/components/JumboDemoCard";
+import {useTranslation} from "react-i18next";
+import code from './demo-code/street-view-panorama.txt';
+
+const STYLES = {
+    overlayView: {
+        background: `red`,
+        color: `white`,
+        padding: 5,
+        borderRadius: `50%`,
+    },
+};
+const getPixelPositionOffset = (width, height) => {
+    return {x: -(width / 2), y: -(height / 2)};
+};
+const StreetViewPanoramaExample = () => {
+    const {t} = useTranslation();
+    const {isLoaded, loadError} = useLoadScript({
+        googleMapsApiKey: "AIzaSyCJM0a8oSaRMwxthozENQg1euRI51aNXJQ",
+        libraries: ["visualization"]
+    });
+    return (
+        <React.Fragment>
+            <Typography variant={"h1"} mb={3}>{t('pages.title.mapStreetView')}</Typography>
+            <JumboDemoCard demoCode={code} wrapperSx={{pt: 0, backgroundColor: 'background.paper'}}>
+                {
+                    isLoaded &&
+                    <GoogleMap
+                        mapContainerStyle={{width: '100%', height: "400px"}}
+                        center={{
+                            lat: 49.2853171,
+                            lng: -123.1119202
+                        }}
+                        zoom={8}
+                    >
+                        <StreetViewPanorama
+                            position={{
+                                lat: 49.2853171,
+                                lng: -123.1119202
+                            }}
+                            visible={true}
+                        >
+                            <OverlayView
+                                position={{lat: 49.28590291211115, lng: -123.11248166065218}}
+                                mapPaneName={OverlayView.OVERLAY_LAYER}
+                                getPixelPositionOffset={getPixelPositionOffset}
+                            >
+                                <div style={STYLES.overlayView}>OverlayView</div>
+                            </OverlayView>
+                        </StreetViewPanorama>
+                    </GoogleMap>
+                }
+            </JumboDemoCard>
+        </React.Fragment>
+    );
+};
+
+export default StreetViewPanoramaExample;

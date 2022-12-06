@@ -1,0 +1,36 @@
+.jumboCardQuick:hover::before {
+    opacity: 1 !important;
+  }
+  .jumboCardQuick::before,
+.jumboCardQuick::after {
+  content: "" !important;
+  height: 100% !important;
+  left: 0px !important;
+  opacity: 0 !important;
+  position: absolute !important;
+  top: 0px !important;
+  transition: opacity 500ms !important;
+  width: 100% !important;
+}
+#jumboCardQuick:hover > .jumboCardQuick::after {
+    opacity: 1;
+  }
+  
+.jumboCardQuick::before {
+  background :  radial-gradient(
+    400px circle at var(--mouse-x) var(--mouse-y) , 
+    rgb(232, 222, 244),
+    transparent 50%
+  );
+  z-index: 2;
+  border-radius: inherit
+}
+
+.jumboCardQuick::after {  
+  background:  radial-gradient(
+    600px circle at var(--mouse-x) var(--mouse-y), 
+    rgb(232, 222, 244),
+    transparent 40%
+  );
+  z-index: 1;
+}

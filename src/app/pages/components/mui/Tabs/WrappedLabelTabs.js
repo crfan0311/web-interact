@@ -1,0 +1,82 @@
+import * as React from 'react';
+import Tabs, {tabsClasses} from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import JumboDemoCard from "@jumbo/components/JumboDemoCard";
+import Div from "@jumbo/shared/Div";
+import AppBar from "@mui/material/AppBar";
+import Typography from "@mui/material/Typography";
+import {useTheme} from "@mui/material/styles";
+import code from "../Tabs/demo-code/wrapped-label-tabs.txt";
+
+const TabPanel = (props) => {
+    const {children, value, index, ...other} = props;
+    return (
+        <div
+            role="tabpanel"
+            hidden={value !== index}
+            id={`scrollabele-tabpanel-${index}`}
+            aria-labelledby={`scrollabele-tab-${index}`}
+            {...other}
+        >
+            {value === index && (
+                <Div sx={{p: 3}}>
+                    <Typography>{children}</Typography>
+                </Div>
+            )}
+        </div>
+    );
+};
+const a11yProps = (index) => {
+    return {
+        id: `scrollabele-tab-${index}`,
+        'aria-controls': `scrollabele-tabpanel-${index}`,
+    };
+};
+const WrappedLabelTabs = () => {
+    const theme = useTheme();
+    const [value, setValue] = React.useState(0);
+
+    const handleChange = (event, newValue) => {
+        setValue(newValue);
+    };
+
+    return (
+        <JumboDemoCard title={"Wrapped Labels"} demoCode={code}>
+            <Div sx={{flexGrow: 1, maxWidth: {xs: 320, sm: 480}, bgcolor: 'background.paper'}}>
+                <AppBar position="static">
+                    <Tabs
+                        value={value}
+                        indicatorColor="secondary"
+                        textColor="inherit"
+                        onChange={handleChange}
+                        variant="scrollable"
+                        scrollButtons
+                        aria-label="visible arrows tabs example"
+                        sx={{
+                            [`& .${tabsClasses.scrollButtons}`]: {
+                                '&.Mui-disabled': {opacity: 0.3},
+                            },
+                        }}
+                    >
+                        <Tab
+                            label="New Arrivals in the Longest Text of Notification."
+                            {...a11yProps(0)}
+                        />
+                        <Tab label="Item Two" {...a11yProps(1)} />
+                        <Tab label="Item Three" {...a11yProps(2)} />
+                    </Tabs>
+                </AppBar>
+                <TabPanel value={value} index={0} dir={theme.direction}>
+                    Item One
+                </TabPanel>
+                <TabPanel value={value} index={1} dir={theme.direction}>
+                    Item Two
+                </TabPanel>
+                <TabPanel value={value} index={2} dir={theme.direction}>
+                    Item Three
+                </TabPanel>
+            </Div>
+        </JumboDemoCard>
+    );
+};
+export default WrappedLabelTabs;

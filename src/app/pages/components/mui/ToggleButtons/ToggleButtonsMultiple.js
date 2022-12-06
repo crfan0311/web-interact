@@ -1,0 +1,43 @@
+import React from 'react';
+import JumboDemoCard from "@jumbo/components/JumboDemoCard";
+import {ToggleButtonGroup} from "@mui/material";
+import ToggleButton from "@mui/material/ToggleButton";
+import FormatBoldIcon from "@mui/icons-material/FormatBold";
+import FormatItalicIcon from "@mui/icons-material/FormatItalic";
+import FormatUnderlinedIcon from "@mui/icons-material/FormatUnderlined";
+import FormatColorFillIcon from "@mui/icons-material/FormatColorFill";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import code from "../ToggleButtons/demo-code/toggle-buttons-multiple.txt";
+
+const ToggleButtonsMultiple = () => {
+    const [formats, setFormats] = React.useState(() => ['bold', 'italic']);
+
+    const handleFormat = (event, newFormats) => {
+        setFormats(newFormats);
+    };
+    return (
+        <JumboDemoCard title={"Multiple"} demoCode={code} wrapperSx={{backgroundColor: 'background.paper', pt: 0}}>
+            <ToggleButtonGroup
+                value={formats}
+                onChange={handleFormat}
+                aria-label="text formatting"
+            >
+                <ToggleButton value="bold" aria-label="bold">
+                    <FormatBoldIcon/>
+                </ToggleButton>
+                <ToggleButton value="italic" aria-label="italic">
+                    <FormatItalicIcon/>
+                </ToggleButton>
+                <ToggleButton value="underlined" aria-label="underlined">
+                    <FormatUnderlinedIcon/>
+                </ToggleButton>
+                <ToggleButton value="color" aria-label="color" disabled>
+                    <FormatColorFillIcon/>
+                    <ArrowDropDownIcon/>
+                </ToggleButton>
+            </ToggleButtonGroup>
+        </JumboDemoCard>
+    );
+};
+
+export default ToggleButtonsMultiple;

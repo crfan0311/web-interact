@@ -1,0 +1,11 @@
+.hide {
+  display: none;
+}
+.hide {
+  display: block;
+  color: red;
+}
+
+.myDIV:hover .hide {
+    color: green
+}

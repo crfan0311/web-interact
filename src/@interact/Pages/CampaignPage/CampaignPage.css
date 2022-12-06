@@ -1,0 +1,372 @@
+.CampaignPage {
+    width:100%;
+
+}
+.campaignMainArea {
+    margin-left:30px;
+    margin-right:30px;
+    width:100%;
+    background-color: blue;
+}
+
+.section1{
+    /* background-color: red; */
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin:20px;
+    width:100%;
+    /* background-color: red; */
+}
+
+.card {
+    border-width:1px;
+    border-color:#a6a6a6;
+    width:100%;
+    height:100%;
+}
+
+
+.InfoSection {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.InfoSection>div {
+    text-align: left;
+    color: #a6a6a6;
+    font-size: 15px;
+}
+
+.InfluencerVideo {
+    padding: 0px;
+    width: 100%;
+    height: calc(100% - 200px);
+    object-fit: cover;
+}
+
+.InfluencerDescription {
+    display: flex;
+    width: 100%;
+    height: 200px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.BiddingStats {
+    text-align: left;
+}
+
+.BottomSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between3;
+
+}
+
+.Share {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.Share * {
+    padding: 5px;
+}
+
+.Highlight {
+    font-weight: 600;
+    color: blueviolet;
+}
+
+body.active-modal {
+    overflow-y: hidden;
+}
+
+.btn-modal {
+    padding: 10px 20px;
+    display: block;
+    margin: 100px auto 0;
+    font-size: 18px;
+}
+
+.modal,
+.overlay {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+}
+
+.overlay {
+    background: rgba(49, 49, 49, 0.8);
+}
+
+.modal-content {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1.4;
+    background: #f1f1f1;
+    padding: 14px 28px;
+    border-radius: 3px;
+    max-width: 600px;
+    min-width: 300px;
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 7px;
+}
+
+.checkbox-div {
+    text-align: left;
+    float: left;
+    display: block;
+    width: 100%;
+}
+
+.card-body-text {
+    font-size: 18px;
+    color: black;
+}
+
+.card-body-text p {
+    padding: 0;
+    margin: 5px 0px 5px 0;
+    text-align: left;
+    font-size: 14px;
+
+}
+    .card-body-text p a {
+        float: right;
+    }
+
+    .click-to-show-card-toggle-true {
+        /* font-size: 0; */
+        float: right;
+        width: 100%;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+
+    .click-to-show-card-toggle-false{
+        font-size: 0;
+        display: none;
+        float: right;
+    }
+
+    .buttonFloat{
+        float: right;
+        margin-bottom: 10px;
+    }
+    .show-error{
+        color: red;
+    }
+
+    .modal_input_email{
+        display: none;
+    }
+
+.Description{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding:30px;
+    height:170px;
+    text-align: center;
+}
+
+.Description * {
+    padding:5px;
+    line-height: 20px;
+}
+
+.CardContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.Card {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ccc;
+    width:1200px;
+    height:520px;
+    /* height:calc(100vh - 340px); */
+    padding-left:40px;
+    padding-right:40px;
+    margin-left:20px;
+    /* padding-top:40px;
+    padding-bottom:40px; */
+
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.Card *{
+    padding:5px;
+}
+
+.InfoSection {
+    display:flex;
+    flex-direction: row;
+    align-items:center;
+}
+.InfoSection >div {
+    text-align: left;
+    color: #a6a6a6;
+    font-size:15px;
+}
+
+.InfluencerVideo{
+    padding:0px;
+    width:100%;
+    height:calc(100% - 200px);
+    object-fit: cover;
+}
+
+.InfluencerDescription{
+    display:flex;
+    width:100%;
+    height:200px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.BiddingStats {
+    text-align:left;
+}
+    
+.BottomSection {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between3;
+
+}
+
+.Share {
+    display:flex;
+    justify-content: flex-end;
+}
+
+.Share * {
+    padding:5px;
+}
+.giveawayCard:hover::before {
+    opacity: 1 !important;
+  }
+  .giveawayCard::before,
+.giveawayCard::after {
+  content: "" !important;
+  height: 100% !important;
+  left: 0px !important;
+  opacity: 0 !important;
+  position: absolute !important;
+  top: 0px !important;
+  transition: opacity 500ms !important;
+  width: 100% !important;
+}
+#giveawayCard:hover > .giveawayCard::after {
+    opacity: 1;
+  }
+  
+.giveawayCard::before {
+  background :  radial-gradient(
+    400px circle at var(--mouse-x) var(--mouse-y) , 
+    rgb(232, 222, 244),
+    transparent 50%
+  );
+  z-index: 2;
+  border-radius: inherit
+}
+
+.giveawayCard::after {  
+  background:  radial-gradient(
+    600px circle at var(--mouse-x) var(--mouse-y), 
+    rgb(232, 222, 244),
+    transparent 40%
+  );
+  z-index: 1;
+}
+
+
+.Highlight {
+    font-weight:600;
+    color:blueviolet;
+}
+
+.auctionCard:hover::before {
+    opacity: 1 !important;
+  }
+  .auctionCard::before,
+.auctionCard::after {
+  content: "" !important;
+  height: 100% !important;
+  left: 0px !important;
+  opacity: 0 !important;
+  position: absolute !important;
+  top: 0px !important;
+  transition: opacity 500ms !important;
+  width: 100% !important;
+}
+#auctionCard:hover > .auctionCard::after {
+    opacity: 1;
+  }
+  
+.auctionCard::before {
+  background :  radial-gradient(
+    400px circle at var(--mouse-x) var(--mouse-y) , 
+    rgb(232, 222, 244),
+    transparent 50%
+  );
+  z-index: 2;
+  border-radius: inherit
+}
+
+.auctionCard::after {  
+  background:  radial-gradient(
+    600px circle at var(--mouse-x) var(--mouse-y), 
+    rgb(232, 222, 244),
+    transparent 40%
+  );
+  z-index: 1;
+}
+
+.stripe-card-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+.stripe-card-wrapper>div .StripeElement {
+    margin: 0px !important;
+}
+
+.stripe-card-wrapper .number_input {
+    grid-row: 1;
+    grid-column: 1 / span 2;
+}
+
+.stripe-card-wrapper .expiry_input {
+    grid-row: 2;
+    grid-column: 1 / span 1;
+}
+
+.stripe-card-wrapper .cvc_input {
+    grid-row: 2;
+    grid-column: 2 / span 1;
+}

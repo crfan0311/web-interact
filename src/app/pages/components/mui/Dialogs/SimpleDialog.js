@@ -1,0 +1,84 @@
+import React from 'react';
+import JumboDemoCard from "@jumbo/components/JumboDemoCard";
+import {
+    Avatar,
+    Button,
+    Dialog,
+    DialogTitle,
+    List,
+    ListItem,
+    ListItemAvatar,
+    ListItemText,
+    Typography
+} from "@mui/material";
+import {blue} from "@mui/material/colors";
+import code from "../Dialogs/demo-code/simple-dialog.txt";
+import {ASSET_AVATARS} from "../../../../utils/constants/paths";
+import Div from "@jumbo/shared/Div";
+import {getAssetPath} from "../../../../utils/appHelpers";
+
+const emails = ['username@gmail.com', 'user02@gmail.com'];
+const SimpleDialog = () => {
+    const [open, setOpen] = React.useState(false);
+    const [selectedValue, setSelectedValue] = React.useState(emails[1]);
+
+    const handleClose = (value) => {
+        setOpen(false);
+        setSelectedValue(value);
+    };
+    return (
+        <JumboDemoCard
+            title={"Simple Dialog"}
+            demoCode={code}
+            wrapperSx={{backgroundColor: 'background.paper', pt: 0}}
+        >
+            <Div>
+                <Typography variant="body1" component="div" color={'text.secondary'} mb={1}>
+                    Selected: {selectedValue}
+                </Typography>
+                <Button variant="outlined" onClick={() => setOpen(true)}>
+                    Open simple dialog
+                </Button>
+                <SimpleDialogDemo
+                    selectedValue={selectedValue}
+                    open={open}
+                    onClose={handleClose}
+                />
+            </Div>
+        </JumboDemoCard>
+    );
+};
+
+const SimpleDialogDemo = ({selectedValue, open, onClose}) => {
+    const handleListItemClick = (value) => {
+        onClose(value);
+    };
+    return (
+        <Dialog onClose={() => onClose(selectedValue)} open={open}>
+            <DialogTitle>Set backup account</DialogTitle>
+            <List sx={{pt: 0}}>
+                {emails.map((email) => (
+                    <ListItem button onClick={() => handleListItemClick(email)} key={email}>
+                        <ListItemAvatar>
+                            <Avatar
+                                sx={{bgcolor: blue[100], color: blue[600]}}
+                                alt={"john"}
+                                src={getAssetPath(`${ASSET_AVATARS}/avatar4.jpg`, "40x40")}
+                            />
+                        </ListItemAvatar>
+                        <ListItemText primary={email}/>
+                    </ListItem>
+                ))}
+
+                <ListItem autoFocus button onClick={() => handleListItemClick('addAccount')}>
+                    <ListItemAvatar>
+                        <Avatar alt={"avatar1"} src={getAssetPath(`${ASSET_AVATARS}/avatar13.jpg`, "40x40")}/>
+                    </ListItemAvatar>
+                    <ListItemText primary="Add account"/>
+                </ListItem>
+            </List>
+        </Dialog>
+    );
+}
+
+export default SimpleDialog;

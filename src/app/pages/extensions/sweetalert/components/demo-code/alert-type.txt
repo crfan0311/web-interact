@@ -1,0 +1,40 @@
+import React from 'react';
+import Button from "@mui/material/Button";
+import useSwalWrapper from "@jumbo/vendors/sweetalert2/hooks";
+import JumboDemoCard from "@jumbo/components/JumboDemoCard";
+import code from "../components/demo-code/alert-type.txt";
+
+const AlertsType = () => {
+    const Swal = useSwalWrapper();
+    const sweetAlerts = variant => {
+        Swal.fire({
+            icon: variant,
+            title: variant,
+            text: 'You clicked the button!',
+        });
+    };
+    return (
+        <JumboDemoCard
+            title={"Alert Types"}
+            demoCode={code}
+        >
+            <Button color="success" variant={"outlined"} onClick={() => sweetAlerts('success')} sx={{mr: 1, mb: 1}}>
+                Success
+            </Button>
+            <Button color="error" variant={"outlined"} onClick={() => sweetAlerts('error')} sx={{mr: 1, mb: 1}}>
+                Error
+            </Button>
+            <Button color="warning" variant={"outlined"} onClick={() => sweetAlerts('warning')} sx={{mr: 1, mb: 1}}>
+                Warning
+            </Button>
+            <Button color="info" variant={"outlined"} onClick={() => sweetAlerts('info')} sx={{mr: 1, mb: 1}}>
+                Information
+            </Button>
+            <Button color="error" variant={"outlined"} onClick={() => sweetAlerts('question')} sx={{mr: 1, mb: 1}}>
+                Question
+            </Button>
+        </JumboDemoCard>
+    );
+};
+
+export default AlertsType;

@@ -1,0 +1,71 @@
+import React from 'react';
+import JumboDemoCard from "@jumbo/components/JumboDemoCard";
+import Stack from "@mui/material/Stack";
+import {ToggleButtonGroup} from "@mui/material";
+import ToggleButton from "@mui/material/ToggleButton";
+import FormatAlignLeftIcon from "@mui/icons-material/FormatAlignLeft";
+import FormatAlignCenterIcon from "@mui/icons-material/FormatAlignCenter";
+import FormatAlignRightIcon from "@mui/icons-material/FormatAlignRight";
+import LaptopIcon from "@mui/icons-material/Laptop";
+import TvIcon from "@mui/icons-material/Tv";
+import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
+import code from "../ToggleButtons/demo-code/toggle-button-not-empty.txt";
+
+const ToggleButtonNotEmpty = () => {
+    const [alignment, setAlignment] = React.useState('left');
+    const [devices, setDevices] = React.useState(() => ['phone']);
+
+    const handleAlignment = (event, newAlignment) => {
+        if (newAlignment !== null) {
+            setAlignment(newAlignment);
+        }
+    };
+
+    const handleDevices = (event, newDevices) => {
+        if (newDevices.length) {
+            setDevices(newDevices);
+        }
+    };
+
+    return (
+        <JumboDemoCard title={"Enforce value set"} demoCode={code}
+                       wrapperSx={{backgroundColor: 'background.paper', pt: 0}}>
+            <Stack direction="row" spacing={4}>
+                <ToggleButtonGroup
+                    value={alignment}
+                    exclusive
+                    onChange={handleAlignment}
+                    aria-label="text alignment"
+                >
+                    <ToggleButton value="left" aria-label="left aligned">
+                        <FormatAlignLeftIcon/>
+                    </ToggleButton>
+                    <ToggleButton value="center" aria-label="centered">
+                        <FormatAlignCenterIcon/>
+                    </ToggleButton>
+                    <ToggleButton value="right" aria-label="right aligned">
+                        <FormatAlignRightIcon/>
+                    </ToggleButton>
+                </ToggleButtonGroup>
+
+                <ToggleButtonGroup
+                    value={devices}
+                    onChange={handleDevices}
+                    aria-label="device"
+                >
+                    <ToggleButton value="laptop" aria-label="laptop">
+                        <LaptopIcon/>
+                    </ToggleButton>
+                    <ToggleButton value="tv" aria-label="tv">
+                        <TvIcon/>
+                    </ToggleButton>
+                    <ToggleButton value="phone" aria-label="phone">
+                        <PhoneAndroidIcon/>
+                    </ToggleButton>
+                </ToggleButtonGroup>
+            </Stack>
+        </JumboDemoCard>
+    );
+};
+
+export default ToggleButtonNotEmpty;

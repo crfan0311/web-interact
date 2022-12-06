@@ -1,0 +1,14 @@
+.InfoContainer{
+    /* padding:50px; */
+    width:100%;
+}
+
+.TopSelect{
+    display:flex;
+    justify-content: flex-start;
+    padding-bottom:10px;
+}
+
+.TopSelect * {
+    padding:10px;
+}

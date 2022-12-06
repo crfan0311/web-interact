@@ -1,0 +1,53 @@
+import React from 'react';
+import JumboDemoCard from "@jumbo/components/JumboDemoCard";
+import {ToggleButtonGroup} from "@mui/material";
+import ToggleButton from "@mui/material/ToggleButton";
+import FormatAlignLeftIcon from "@mui/icons-material/FormatAlignLeft";
+import FormatAlignCenterIcon from "@mui/icons-material/FormatAlignCenter";
+import FormatAlignRightIcon from "@mui/icons-material/FormatAlignRight";
+import FormatAlignJustifyIcon from "@mui/icons-material/FormatAlignJustify";
+import code from "../ToggleButtons/demo-code/toggle-button-sizes.txt";
+import Stack from "@mui/material/Stack";
+
+const ToggleButtonSizes = () => {
+    const [alignment, setAlignment] = React.useState('left');
+
+    const handleChange = (event, newAlignment) => {
+        setAlignment(newAlignment);
+    };
+    const children = [
+        <ToggleButton value="left" key="left">
+            <FormatAlignLeftIcon/>
+        </ToggleButton>,
+        <ToggleButton value="center" key="center">
+            <FormatAlignCenterIcon/>
+        </ToggleButton>,
+        <ToggleButton value="right" key="right">
+            <FormatAlignRightIcon/>
+        </ToggleButton>,
+        <ToggleButton value="justify" key="justify">
+            <FormatAlignJustifyIcon/>
+        </ToggleButton>,
+    ];
+
+    const control = {
+        value: alignment,
+        onChange: handleChange,
+        exclusive: true,
+    };
+    return (
+        <JumboDemoCard title={"Sizes"} demoCode={code} wrapperSx={{backgroundColor: 'background.paper', pt: 0}}>
+            <Stack spacing={2} alignItems={'center'}>
+                <ToggleButtonGroup size="small" {...control}>
+                    {children}
+                </ToggleButtonGroup>
+                <ToggleButtonGroup {...control}>{children}</ToggleButtonGroup>
+                <ToggleButtonGroup size="large" {...control}>
+                    {children}
+                </ToggleButtonGroup>
+            </Stack>
+        </JumboDemoCard>
+    );
+};
+
+export default ToggleButtonSizes;
